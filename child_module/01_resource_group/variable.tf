@@ -4,7 +4,7 @@ variable "rgs"{
       name = string
       location = string
       managed_by = optional(string,null)
-      tags = optional(string,null)
+      
       
 
     }))

@@ -1,1 +1,2 @@
 variable "rgs" {}
+variable "vnets" {}
