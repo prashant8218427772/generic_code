@@ -15,6 +15,10 @@ jobs:
     name: deploy runner
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: parent_module/dev
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -34,16 +38,13 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: parent_module/dev
-
+        
       - name: Terraform Validate
         run: terraform validate
-        working-directory: parent_module/dev
-
+        
       - name: Terraform Fmt
         run: terraform fmt 
-        working-directory: parent_module/dev
-
+        
       - name: Terraform Plan
         run: terraform plan
-        working-directory: parent_module/dev
+        
