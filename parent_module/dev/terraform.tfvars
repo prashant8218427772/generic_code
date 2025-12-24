@@ -1,10 +1,10 @@
 rgs = {
-    rg1= {
-        name = "jio"
-        location = "central india"
-        
+  rg1 = {
+    name     = "jio"
+    location = "central india"
 
-    }
+
+  }
 }
 
 vnets = {
@@ -33,10 +33,35 @@ vnets = {
 
 pip = {
 
-  pip1= {
-    name = "frontend_pip"
+  pip1 = {
+    name                = "frontend_pip"
     resource_group_name = "rg-centralindia"
-    location = "central india"
-   allocation_method = "Static"
+    location            = "central india"
+    allocation_method   = "Static"
+  }
+}
+
+nsgs = {
+
+  nsg1 = {
+    name                = "nsg_rule"
+    resource_group_name = "rg-centralindia"
+    location            = "centralindia"
+
+    security_rule = [
+      {
+
+        name                       = "allow-ssh"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+        access                     = "Allow"
+        priority                   = 100
+        direction                  = "Inbound"
+      }
+    ]
+
   }
 }
